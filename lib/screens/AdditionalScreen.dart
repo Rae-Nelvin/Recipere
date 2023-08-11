@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/LoginScreen.dart';
+import 'package:recipere/screens/RegisterScreen.dart';
 
 class AdditionalScreen extends StatelessWidget {
   const AdditionalScreen({super.key});
@@ -17,34 +18,67 @@ class AdditionalScreen extends StatelessWidget {
           Image.asset(
             'lib/assets/app-icon.png',
             fit: BoxFit.cover,
-            alignment: Alignment.center,
           ),
           const SizedBox(height: 47.81),
-          Container(
-            alignment: Alignment.center,
-            child: Column(
-              children: [
-                CustomButtonFactory.createButton(ButtonType.filled, 366, 42, CustomColors.secondary, 10, 8, null, "Sign Up",  FontWeight.w600, Colors.white, () {}).build(),
-                const SizedBox(height: 16),
-                CustomButtonFactory.createButton(ButtonType.outlined, 366, 42, CustomColors.secondary, 10, 8, "lib/assets/google-logo.png", "Continue with Google", FontWeight.w600, CustomColors.primary, () {}).build(),
-                const SizedBox(height: 16),
-                CustomButtonFactory.createButton(ButtonType.outlined, 366, 42, CustomColors.secondary, 10, 8, "lib/assets/facebook-logo.png", "Continue with Facebook", FontWeight.w600, CustomColors.primary, () {}).build(),
-                TextButton(
+          Column(
+            children: [
+              CustomButtonFactory.createButton(
+                  type: ButtonType.filled,
+                  width: 366,
+                  height: 43,
+                  color: CustomColors.secondary,
+                  verticalPadding: 10,
+                  borderRadius: 8,
+                  text: "Sign Up",
+                  fontColor: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => LoginScreen())
-                    );
-                  },
-                  child: const Text(
-                    "Log In",
-                    style: TextStyle(
-                        color: CustomColors.primary,
-                        fontWeight: FontWeight.w600),
-                  ),
-                )
-              ],
-            ),
-          )
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const RegisterScreen()));
+                  }).build(),
+              const SizedBox(height: 16),
+              CustomButtonFactory.createButton(
+                      type: ButtonType.outlined,
+                      width: 366,
+                      height: 43,
+                      color: CustomColors.secondary,
+                      verticalPadding: 10,
+                      borderRadius: 8,
+                      icon: "lib/assets/google-logo.png",
+                      text: "Continue with Google",
+                      fontColor: CustomColors.primary,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      onPressed: () {})
+                  .build(),
+              const SizedBox(height: 16),
+              CustomButtonFactory.createButton(
+                      type: ButtonType.outlined,
+                      width: 366,
+                      height: 43,
+                      color: CustomColors.secondary,
+                      verticalPadding: 10,
+                      borderRadius: 8,
+                      icon: "lib/assets/facebook-logo.png",
+                      text: "Continue with Facebook",
+                      fontColor: CustomColors.primary,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      onPressed: () {})
+                  .build(),
+              CustomButtonFactory.createButton(
+                  type: ButtonType.text,
+                  text: "Log In",
+                  fontColor: CustomColors.primary,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+                  }).build()
+            ],
+          ),
         ],
       ),
     );

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 
-class FilledCustomButton implements Button {
+class CustomFilledButton implements Button {
   final double width;
   final double height;
   final Color backgroundColor;
   final double verticalPadding;
   final double borderRadius;
+  final String? icon;
   final String text;
   final Color fontColor;
   final FontWeight fontWeight;
-  final String? icon;
+  final double fontSize;
   final VoidCallback onPressed;
 
-  const FilledCustomButton(
+  const CustomFilledButton(
       {Key? key,
       required this.width,
       required this.height,
@@ -23,6 +24,7 @@ class FilledCustomButton implements Button {
       required this.text,
       required this.fontColor,
       required this.fontWeight,
+      required this.fontSize,
       required this.onPressed,
       this.icon});
 
@@ -52,7 +54,8 @@ class FilledCustomButton implements Button {
             if (icon != null) const SizedBox(width: 8),
             Text(
               text,
-              style: TextStyle(color: fontColor, fontWeight: fontWeight),
+              style: TextStyle(
+                  color: fontColor, fontWeight: fontWeight, fontSize: fontSize),
             )
           ],
         ),

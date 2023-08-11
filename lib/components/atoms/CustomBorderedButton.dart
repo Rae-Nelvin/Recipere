@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 
-class BorderedCustomButton implements Button {
+class CustomBorderedButton implements Button {
   final double width;
   final double height;
   final Color borderColor;
   final double verticalPadding;
   final double borderRadius;
+  final String? icon;
   final String text;
   final Color fontColor;
   final FontWeight fontWeight;
-  final String? icon;
+  final double fontSize;
   final VoidCallback onPressed;
 
-  const BorderedCustomButton(
+  const CustomBorderedButton(
       {Key? key,
       required this.width,
       required this.height,
@@ -23,6 +24,7 @@ class BorderedCustomButton implements Button {
       required this.text,
       required this.fontColor,
       required this.fontWeight,
+      required this.fontSize,
       required this.onPressed,
       this.icon});
 
@@ -58,6 +60,7 @@ class BorderedCustomButton implements Button {
               style: TextStyle(
                 color: fontColor,
                 fontWeight: fontWeight,
+                fontSize: fontSize,
               ),
             )
           ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/atoms/BorderedCustomButton.dart';
-import 'package:recipere/components/atoms/FilledCustomButton.dart';
+import 'package:recipere/components/atoms/CustomBorderedButton.dart';
+import 'package:recipere/components/atoms/CustomFilledButon.dart';
+import 'package:recipere/components/atoms/CustomTextButton.dart';
 
 enum ButtonType {
   filled,
@@ -14,41 +15,51 @@ abstract class Button {
 
 class CustomButtonFactory {
   static Button createButton(
-      ButtonType type,
-      double width,
-      double height,
-      Color color,
-      double verticalPadding,
-      double borderRadius,
+      {required ButtonType type,
+      double? width,
+      double? height,
+      Color? color,
+      double? verticalPadding,
+      double? borderRadius,
       String? icon,
-      String text,
-      FontWeight fontWeight,
-      Color fontColor,
-      VoidCallback onPressed) {
+      required String text,
+      required Color fontColor,
+      required FontWeight fontWeight,
+      required double fontSize,
+      required VoidCallback onPressed}) {
     switch (type) {
       case ButtonType.filled:
-        return FilledCustomButton(
-            width: width,
-            height: height,
-            backgroundColor: color,
-            verticalPadding: verticalPadding,
-            borderRadius: borderRadius,
+        return CustomFilledButton(
+            width: width ?? 0,
+            height: height ?? 0,
+            backgroundColor: color ?? Colors.white,
+            verticalPadding: verticalPadding ?? 0,
+            borderRadius: borderRadius ?? 0,
             icon: icon,
             text: text,
             fontColor: fontColor,
             fontWeight: fontWeight,
+            fontSize: fontSize,
             onPressed: onPressed);
       case ButtonType.outlined:
-        return BorderedCustomButton(
-            width: width,
-            height: height,
-            borderColor: color,
-            verticalPadding: verticalPadding,
-            borderRadius: borderRadius,
+        return CustomBorderedButton(
+            width: width ?? 0,
+            height: height ?? 0,
+            borderColor: color ?? Colors.white,
+            verticalPadding: verticalPadding ?? 0,
+            borderRadius: borderRadius ?? 0,
             icon: icon,
             text: text,
             fontColor: fontColor,
             fontWeight: fontWeight,
+            fontSize: fontSize,
+            onPressed: onPressed);
+      case ButtonType.text:
+        return CustomTextButton(
+            text: text,
+            fontColor: fontColor,
+            fontWeight: fontWeight,
+            fontSize: fontSize,
             onPressed: onPressed);
       default:
         throw ArgumentError('Invalid button type');
