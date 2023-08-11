@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
+import 'package:recipere/screens/LoginScreen.dart';
 
 class AdditionalScreen extends StatelessWidget {
   const AdditionalScreen({super.key});
@@ -22,7 +23,6 @@ class AdditionalScreen extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CustomButtonFactory.createButton(ButtonType.filled, 366, 42, CustomColors.secondary, 10, 8, null, "Sign Up",  FontWeight.w600, Colors.white, () {}).build(),
                 const SizedBox(height: 16),
@@ -30,7 +30,11 @@ class AdditionalScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 CustomButtonFactory.createButton(ButtonType.outlined, 366, 42, CustomColors.secondary, 10, 8, "lib/assets/facebook-logo.png", "Continue with Facebook", FontWeight.w600, CustomColors.primary, () {}).build(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => LoginScreen())
+                    );
+                  },
                   child: const Text(
                     "Log In",
                     style: TextStyle(
