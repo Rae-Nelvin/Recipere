@@ -3,7 +3,8 @@ import 'package:recipere/components/atoms/CustomDatePicker.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
-import 'package:recipere/screens/LoginScreen.dart';
+import 'package:recipere/screens/authentication/LoginScreen.dart';
+import 'package:recipere/screens/onboarding/OnBoardingOneScreen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -20,32 +21,32 @@ class RegisterScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'lib/assets/app-icon.png',
+                  'lib/assets/icons/app-icon.png',
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 32),
                 const Column(
                   children: [
                     CustomTextFormField(
-                        icon: 'lib/assets/name-icon.png',
+                        icon: 'lib/assets/icons/name-icon.png',
                         hintText: "Name",
                         isPassword: false),
                     SizedBox(height: 16),
                     CustomTextFormField(
-                        icon: 'lib/assets/email-icon.png',
+                        icon: 'lib/assets/icons/email-icon.png',
                         hintText: "Email",
                         isPassword: false),
                     SizedBox(height: 16),
                     CustomDatePicker(
-                        icon: "lib/assets/dob-icon.png", labelText: "D.O.B"),
+                        icon: "lib/assets/icons/dob-icon.png", labelText: "D.O.B"),
                     SizedBox(height: 16),
                     CustomTextFormField(
-                        icon: 'lib/assets/password-icon.png',
+                        icon: 'lib/assets/icons/password-icon.png',
                         hintText: "Password",
                         isPassword: true),
                     SizedBox(height: 16),
                     CustomTextFormField(
-                        icon: 'lib/assets/confirm-password-icon.png',
+                        icon: 'lib/assets/icons/confirm-password-icon.png',
                         hintText: "Confirm Your Password",
                         isPassword: true),
                   ],
@@ -68,7 +69,7 @@ class RegisterScreen extends StatelessWidget {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const RegisterScreen()));
+                                      const OnBoardingOneScreen()));
                         }).build(),
                     CustomButtonFactory.createButton(
                         type: ButtonType.text,

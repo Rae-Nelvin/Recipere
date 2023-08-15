@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/screens/AdditionalScreen.dart';
+import './screens/authentication/AdditionalScreen.dart';
 import './screens/SplashScreen.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 

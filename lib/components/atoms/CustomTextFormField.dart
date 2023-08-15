@@ -57,7 +57,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 });
               },
               child: Image.asset(
-                'lib/assets/show-password-icon.png',
+                'lib/assets/icons/show-password-icon.png',
                 width: 20,
                 height: 18,
               ),

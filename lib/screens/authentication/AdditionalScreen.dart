@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
-import 'package:recipere/screens/LoginScreen.dart';
-import 'package:recipere/screens/RegisterScreen.dart';
+import 'package:recipere/screens/authentication/LoginScreen.dart';
+import 'package:recipere/screens/authentication/RegisterScreen.dart';
 
 class AdditionalScreen extends StatelessWidget {
   const AdditionalScreen({super.key});
@@ -16,7 +16,7 @@ class AdditionalScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'lib/assets/app-icon.png',
+            'lib/assets/icons/app-icon.png',
             fit: BoxFit.cover,
           ),
           const SizedBox(height: 47.81),
@@ -45,7 +45,7 @@ class AdditionalScreen extends StatelessWidget {
                       color: CustomColors.secondary,
                       verticalPadding: 10,
                       borderRadius: 8,
-                      icon: "lib/assets/google-logo.png",
+                      icon: "lib/assets/icons/google-logo.png",
                       text: "Continue with Google",
                       fontColor: CustomColors.primary,
                       fontWeight: FontWeight.w600,
@@ -60,7 +60,7 @@ class AdditionalScreen extends StatelessWidget {
                       color: CustomColors.secondary,
                       verticalPadding: 10,
                       borderRadius: 8,
-                      icon: "lib/assets/facebook-logo.png",
+                      icon: "lib/assets/icons/facebook-logo.png",
                       text: "Continue with Facebook",
                       fontColor: CustomColors.primary,
                       fontWeight: FontWeight.w600,
