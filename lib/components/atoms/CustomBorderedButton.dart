@@ -55,12 +55,15 @@ class CustomBorderedButton implements Button {
               const SizedBox(
                 width: 8,
               ),
-            Text(
-              text,
-              style: TextStyle(
-                color: fontColor,
-                fontWeight: fontWeight,
-                fontSize: fontSize,
+            Flexible(
+              child: Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: fontColor,
+                  fontWeight: fontWeight,
+                  fontSize: fontSize,
+                ),
               ),
             )
           ],

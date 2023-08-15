@@ -4,13 +4,12 @@ import './screens/SplashScreen.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Recipere',
@@ -35,8 +34,9 @@ class SplashScreenWithTimer extends StatelessWidget {
       widgetBuilder: (context, timer) {
         if (timer == null) {
           return SplashScreen(countdownDuration: countdownDuration);
-        } else
+        } else {
           return SplashScreen(countdownDuration: countdownDuration);
+        }
       },
     );
   }

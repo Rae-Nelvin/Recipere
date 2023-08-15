@@ -3,6 +3,7 @@ import 'package:recipere/components/atoms/CustomPaginationCircle.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/components/molecules/OnBoardingGradientBackground.dart';
 import 'package:recipere/configs/CustomColors.dart';
+import 'package:recipere/screens/preferences/UserPreferences.dart';
 
 class OnBoardingThreeScreen extends StatelessWidget {
   const OnBoardingThreeScreen({super.key});
@@ -12,7 +13,9 @@ class OnBoardingThreeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const OnBoardingGradientBackground(background: 'lib/assets/backgrounds/onboarding-three.png', color: CustomColors.primary),
+          const OnBoardingGradientBackground(
+              background: 'lib/assets/backgrounds/onboarding-three.png',
+              color: CustomColors.primary),
           Positioned(
             bottom: 48,
             left: 24,
@@ -49,18 +52,22 @@ class OnBoardingThreeScreen extends StatelessWidget {
                       ],
                     ),
                     CustomButtonFactory.createButton(
-                            type: ButtonType.filled,
-                            width: 173,
-                            height: 40,
-                            color: Colors.white,
-                            verticalPadding: 8,
-                            borderRadius: 8,
-                            text: "Start Now",
-                            fontColor: CustomColors.primary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            onPressed: () {})
-                        .build(),
+                        type: ButtonType.filled,
+                        width: 173,
+                        height: 40,
+                        color: Colors.white,
+                        verticalPadding: 8,
+                        borderRadius: 8,
+                        text: "Start Now",
+                        fontColor: CustomColors.primary,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const UserPreferences()));
+                        }).build(),
                   ],
                 )
               ],

@@ -71,6 +71,9 @@ flutter:
     - lib/assets/icons/name-icon.png
     - lib/assets/icons/password-icon.png
     - lib/assets/icons/show-password-icon.png
+    - lib/assets/icons/food-icon.png
+    - lib/assets/icons/gender-icon.png
+    - lib/assets/icons/nickname-icon.png
     - lib/assets/backgrounds/onboarding-one.png
     - lib/assets/backgrounds/onboarding-two.png
     - lib/assets/backgrounds/onboarding-three.png
