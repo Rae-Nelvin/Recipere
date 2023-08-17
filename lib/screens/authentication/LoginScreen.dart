@@ -4,6 +4,7 @@ import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/authentication/RegisterScreen.dart';
 import 'package:recipere/screens/onboarding/OnBoardingOneScreen.dart';
+import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -26,12 +27,12 @@ class LoginScreen extends StatelessWidget {
               const Column(
                 children: [
                   CustomTextFormField(
-                      icon: 'lib/assets/icons/email-icon.png',
+                      icon: MaterialSymbols.mail_filled,
                       hintText: "Email",
                       isPassword: false),
                   SizedBox(height: 16),
                   CustomTextFormField(
-                      icon: 'lib/assets/icons/password-icon.png',
+                      icon: MaterialSymbols.lock_filled,
                       hintText: "Password",
                       isPassword: true),
                   SizedBox(height: 8),

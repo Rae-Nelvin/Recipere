@@ -7,7 +7,9 @@ class CustomBorderedButton implements Button {
   final Color borderColor;
   final double verticalPadding;
   final double borderRadius;
-  final String? icon;
+  final String? image;
+  final IconData? icon;
+  final double? iconSize;
   final String text;
   final Color fontColor;
   final FontWeight fontWeight;
@@ -26,7 +28,7 @@ class CustomBorderedButton implements Button {
       required this.fontWeight,
       required this.fontSize,
       required this.onPressed,
-      this.icon});
+      this.image, this.icon, this.iconSize});
 
   @override
   Widget build() {
@@ -42,29 +44,28 @@ class CustomBorderedButton implements Button {
           ),
           padding: EdgeInsets.symmetric(vertical: verticalPadding),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap (
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             if (icon != null)
+               Icon(icon,
+               size: iconSize,
+               color: fontColor,),
+            if (image != null)
               Image.asset(
-                icon!,
-                width: 20,
-                height: 20,
+                image!,
+                width: iconSize ?? 20,
+                height: iconSize ?? 20,
               ),
-            if (icon != null)
+            if (icon != null || image != null)
               const SizedBox(
                 width: 8,
               ),
-            Flexible(
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: fontColor,
-                  fontWeight: fontWeight,
-                  fontSize: fontSize,
-                ),
-              ),
+            Text(
+              text,
+              style: TextStyle(
+                  color: fontColor, fontWeight: fontWeight, fontSize: fontSize),
             )
           ],
         ),

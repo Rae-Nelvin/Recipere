@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  final String icon;
+  final IconData icon;
   final String hintText;
   final bool isPassword;
 
@@ -36,7 +36,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           borderRadius: BorderRadius.circular(8)),
       child: Row(
         children: [
-          Image.asset(widget.icon, width: 16, height: 16),
+          Icon(widget.icon, size: 20, color: CustomColors.secondary,),
           const SizedBox(width: 8),
           Expanded(
               child: TextFormField(

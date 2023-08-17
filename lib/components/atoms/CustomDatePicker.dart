@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class CustomDatePicker extends StatefulWidget {
-  final String icon;
+  final IconData icon;
   final String labelText;
   final DateTime? selectedDate;
   final Function(DateTime)? onDateChanged;
@@ -39,7 +39,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
           borderRadius: BorderRadius.circular(8)),
       child: Row(
         children: [
-          Image.asset(widget.icon, width: 16, height: 16),
+          Icon(widget.icon, size: 20, color: CustomColors.secondary,),
           TextButton(
             onPressed: () {
               showDatePicker(

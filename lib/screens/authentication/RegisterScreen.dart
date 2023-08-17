@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/atoms/CustomDatePicker.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
@@ -28,25 +29,26 @@ class RegisterScreen extends StatelessWidget {
                 const Column(
                   children: [
                     CustomTextFormField(
-                        icon: 'lib/assets/icons/name-icon.png',
+                        icon: MaterialSymbols.person_2_filled,
                         hintText: "Name",
                         isPassword: false),
                     SizedBox(height: 16),
                     CustomTextFormField(
-                        icon: 'lib/assets/icons/email-icon.png',
+                        icon: MaterialSymbols.mail_filled,
                         hintText: "Email",
                         isPassword: false),
                     SizedBox(height: 16),
                     CustomDatePicker(
-                        icon: "lib/assets/icons/dob-icon.png", labelText: "D.O.B"),
+                        icon: MaterialSymbols.calendar_month_filled,
+                        labelText: "D.O.B"),
                     SizedBox(height: 16),
                     CustomTextFormField(
-                        icon: 'lib/assets/icons/password-icon.png',
+                        icon: MaterialSymbols.lock_filled,
                         hintText: "Password",
                         isPassword: true),
                     SizedBox(height: 16),
                     CustomTextFormField(
-                        icon: 'lib/assets/icons/confirm-password-icon.png',
+                        icon: MaterialSymbols.key_outlined,
                         hintText: "Confirm Your Password",
                         isPassword: true),
                   ],

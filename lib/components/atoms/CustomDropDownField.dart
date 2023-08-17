@@ -3,7 +3,7 @@ import 'package:recipere/components/molecules/CustomDropDownModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class CustomDropDownField<T> extends StatefulWidget {
-  final String icon;
+  final IconData icon;
   final String hintText;
   final String modalTitle;
   final List<Widget> items;
@@ -46,7 +46,7 @@ class _CustomDropDownFieldState<T> extends State<CustomDropDownField<T>> {
         ),
         child: Row(
           children: [
-            Image.asset(widget.icon, width: 16, height: 16),
+            Icon(widget.icon, size: 16, color: CustomColors.secondary,),
             const SizedBox(width: 8),
             Expanded(
               child: Text(

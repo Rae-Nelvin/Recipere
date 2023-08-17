@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class CustomDropDownModal<T> extends StatelessWidget {
@@ -10,7 +11,7 @@ class CustomDropDownModal<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final modalHeight = screenHeight * 1.5; // Adjust the percentage as needed
+    final modalHeight = screenHeight * 0.8;
 
     return Container(
       height: modalHeight,
@@ -32,12 +33,14 @@ class CustomDropDownModal<T> extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: SingleChildScrollView(
               child: Wrap(
-                spacing: 12, // Adjust the spacing between items
-                runSpacing: 12, // Adjust the spacing between rows
+                spacing: 24, // Adjust the spacing between items
+                runSpacing: 24, // Adjust the spacing between rows
                 children: items,
               ),
             ),
           ),
+          const SizedBox(height: 80),
+          CustomButtonFactory.createButton(type: ButtonType.filled, color: CustomColors.secondary, width: 153, height: 40, verticalPadding: 8, borderRadius: 16, text: "Continue", fontColor: Colors.white, fontWeight: FontWeight.w600, fontSize: 16, onPressed: () {}).build(),
         ],
       ),
     );

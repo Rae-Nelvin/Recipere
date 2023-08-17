@@ -7,7 +7,9 @@ class CustomFilledButton implements Button {
   final Color backgroundColor;
   final double verticalPadding;
   final double borderRadius;
-  final String? icon;
+  final String? image;
+  final IconData? icon;
+  final double? iconSize;
   final String text;
   final Color fontColor;
   final FontWeight fontWeight;
@@ -26,7 +28,7 @@ class CustomFilledButton implements Button {
       required this.fontWeight,
       required this.fontSize,
       required this.onPressed,
-      this.icon});
+      this.image, this.icon, this.iconSize});
 
   @override
   Widget build() {
@@ -42,16 +44,24 @@ class CustomFilledButton implements Button {
           ),
           padding: EdgeInsetsDirectional.symmetric(vertical: verticalPadding),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Wrap (
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             if (icon != null)
+               Icon(icon,
+               size: iconSize,
+               color: fontColor,),
+            if (image != null)
               Image.asset(
-                icon!,
-                width: 20,
-                height: 20,
+                image!,
+                width: iconSize ?? 20,
+                height: iconSize ?? 20,
               ),
-            if (icon != null) const SizedBox(width: 8),
+            if (icon != null || image != null)
+              const SizedBox(
+                width: 8,
+              ),
             Text(
               text,
               style: TextStyle(
