@@ -3,11 +3,11 @@ import 'package:recipere/components/atoms/GenderModals.dart';
 import 'package:recipere/components/molecules/CustomDropDownModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
-class CustomDropDownField<T extends Gender> extends StatefulWidget {
+class CustomDropDownField<T extends Gender> extends StatelessWidget {
   final IconData icon;
   final String hintText;
   final String modalTitle;
-  final GenderModals items;
+  final Widget items;
   final T? value;
 
   const CustomDropDownField({
@@ -20,23 +20,10 @@ class CustomDropDownField<T extends Gender> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomDropDownFieldState<T> createState() => _CustomDropDownFieldState<T>();
-}
-
-class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownField<T>> {
-  late T? _selectedValue;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedValue = widget.value;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _showModal();
+        _showModal(context);
       },
       child: Container(
         width: 366,
@@ -47,13 +34,13 @@ class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownFi
         ),
         child: Row(
           children: [
-            Icon(widget.icon, size: 16, color: CustomColors.secondary,),
+            Icon(icon, size: 16, color: CustomColors.secondary,),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                _selectedValue != null
-                    ? _selectedValue.toString()
-                    : widget.hintText,
+                value != null
+                    ? genderDisplayNames[value]!
+                    : hintText,
                 style: const TextStyle(
                   color: CustomColors.secondary,
                   fontSize: 16,
@@ -67,28 +54,15 @@ class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownFi
     );
   }
 
-  Future<void> _showModal() async {
-    final T? newValue = await showModalBottomSheet<T>(
+  Future<void> _showModal(BuildContext context) async {
+    await showModalBottomSheet<T>(
       context: context,
       builder: (BuildContext context) {
         return CustomDropDownModal<T>(
-          title: widget.modalTitle,
-          items: widget.items,
-          onGenderSelected: (selectedGender) {
-            setState(() {
-              _selectedValue = selectedGender as T?;
-              print("CustomDropdown : $_selectedValue");
-            });
-          },
-          selectedGender: _selectedValue, // Pass selected value
+          title: modalTitle,
+          items: items,
         );
       },
     );
-
-    if (newValue != null) {
-      setState(() {
-        _selectedValue = newValue;
-      });
-    }
   }
 }

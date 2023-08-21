@@ -5,6 +5,12 @@ import 'package:recipere/configs/CustomColors.dart';
 
 enum Gender { male, female, others }
 
+Map<Gender, String> genderDisplayNames = {
+  Gender.male: "Male",
+  Gender.female: "Female",
+  Gender.others: "Others",
+};
+
 class GenderModals extends StatefulWidget {
   final void Function(Gender) onGenderSelected;
   final Gender? selectedGender;

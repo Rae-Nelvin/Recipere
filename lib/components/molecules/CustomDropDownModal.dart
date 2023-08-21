@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/atoms/GenderModals.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class CustomDropDownModal<T> extends StatelessWidget {
   final String title;
   final Widget items;
-  final void Function(Gender) onGenderSelected;
-  final Gender? selectedGender;
 
   const CustomDropDownModal({
     required this.title,
     required this.items,
-    required this.onGenderSelected,
-    required this.selectedGender,
   });
 
   @override
@@ -50,9 +45,7 @@ class CustomDropDownModal<T> extends StatelessWidget {
               fontWeight: FontWeight.w600,
               fontSize: 16,
               onPressed: () {
-                onGenderSelected(selectedGender!);
-                Navigator.pop(context, selectedGender);
-                print('CustomDropDownModal: $selectedGender');
+                Navigator.pop(context);
               },
             ).build(),
           ],
