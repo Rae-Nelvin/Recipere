@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:recipere/components/atoms/GenderModals.dart';
 import 'package:recipere/components/molecules/CustomDropDownModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
-class CustomDropDownField<T> extends StatefulWidget {
+class CustomDropDownField<T extends Gender> extends StatefulWidget {
   final IconData icon;
   final String hintText;
   final String modalTitle;
-  final Widget items;
+  final GenderModals items;
   final T? value;
 
   const CustomDropDownField({
@@ -22,7 +23,7 @@ class CustomDropDownField<T> extends StatefulWidget {
   _CustomDropDownFieldState<T> createState() => _CustomDropDownFieldState<T>();
 }
 
-class _CustomDropDownFieldState<T> extends State<CustomDropDownField<T>> {
+class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownField<T>> {
   T? _selectedValue;
 
   @override
@@ -36,6 +37,7 @@ class _CustomDropDownFieldState<T> extends State<CustomDropDownField<T>> {
     return GestureDetector(
       onTap: () {
         _showModal();
+        print("CustomDropdown : $_selectedValue");
       },
       child: Container(
         width: 366,
@@ -53,10 +55,8 @@ class _CustomDropDownFieldState<T> extends State<CustomDropDownField<T>> {
                 _selectedValue != null
                     ? _selectedValue.toString()
                     : widget.hintText,
-                style: TextStyle(
-                  color: _selectedValue != null
-                      ? Colors.black // Change this to your desired text color
-                      : CustomColors.secondary,
+                style: const TextStyle(
+                  color: CustomColors.secondary,
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
@@ -72,7 +72,16 @@ class _CustomDropDownFieldState<T> extends State<CustomDropDownField<T>> {
     final T? newValue = await showModalBottomSheet<T>(
       context: context,
       builder: (BuildContext context) {
-        return CustomDropDownModal<T>(title: widget.modalTitle, items: widget.items);
+        return CustomDropDownModal<T>(
+          title: widget.modalTitle,
+          items: widget.items,
+          onGenderSelected: (selectedGender) {
+            setState(() {
+              _selectedValue = selectedGender as T?;
+            });
+          },
+          selectedGender: _selectedValue, // Pass selected value
+        );
       },
     );
 

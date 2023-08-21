@@ -6,8 +6,21 @@ import 'package:recipere/components/atoms/GenderModals.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
-class UserPreferences extends StatelessWidget {
-  const UserPreferences({super.key});
+class UserPreferences extends StatefulWidget {
+  const UserPreferences();
+
+  @override
+  _UserPreferencesState createState() => _UserPreferencesState();
+}
+
+class _UserPreferencesState extends State<UserPreferences> {
+  Gender _selectedGender = Gender.male;
+
+  void _handleGenderSelected(Gender selectedGender) {
+    setState(() {
+      _selectedGender = selectedGender;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +37,26 @@ class UserPreferences extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               const SizedBox(height: 32),
-              const Column(
+              Column(
                 children: [
-                  CustomTextFormField(
+                  const CustomTextFormField(
                     icon: MaterialSymbols.person_pin,
                     hintText: "Nickname",
                     isPassword: false,
                   ),
-                  SizedBox(height: 16),
-                  CustomDropDownField<String>(
+                  const SizedBox(height: 16),
+                  CustomDropDownField<Gender>(
                     icon: MaterialSymbols.transgender,
                     hintText: 'Gender',
                     modalTitle: "Select Your Gender",
-                    items: GenderModals(),
+                    items: GenderModals(
+                      onGenderSelected: _handleGenderSelected,
+                      selectedGender: _selectedGender, // Pass selected gender
+                    ),
+                    value: _selectedGender,
                   ),
-                  SizedBox(height: 16),
-                  CustomTextFormField(
+                  const SizedBox(height: 16),
+                  const CustomTextFormField(
                     icon: MaterialSymbols.restaurant_filled,
                     hintText: "Favorite Dish",
                     isPassword: false,
