@@ -24,7 +24,7 @@ class CustomDropDownField<T extends Gender> extends StatefulWidget {
 }
 
 class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownField<T>> {
-  T? _selectedValue;
+  late T? _selectedValue;
 
   @override
   void initState() {
@@ -37,7 +37,6 @@ class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownFi
     return GestureDetector(
       onTap: () {
         _showModal();
-        print("CustomDropdown : $_selectedValue");
       },
       child: Container(
         width: 366,
@@ -78,6 +77,7 @@ class _CustomDropDownFieldState<T extends Gender> extends State<CustomDropDownFi
           onGenderSelected: (selectedGender) {
             setState(() {
               _selectedValue = selectedGender as T?;
+              print("CustomDropdown : $_selectedValue");
             });
           },
           selectedGender: _selectedValue, // Pass selected value

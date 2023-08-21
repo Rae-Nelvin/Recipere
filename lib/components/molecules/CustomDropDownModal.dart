@@ -7,9 +7,14 @@ class CustomDropDownModal<T> extends StatelessWidget {
   final String title;
   final Widget items;
   final void Function(Gender) onGenderSelected;
-  final Gender? selectedGender; // Add this line
+  final Gender? selectedGender;
 
-  const CustomDropDownModal({required this.title, required this.items, required this.onGenderSelected, this.selectedGender});
+  const CustomDropDownModal({
+    required this.title,
+    required this.items,
+    required this.onGenderSelected,
+    required this.selectedGender,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +39,22 @@ class CustomDropDownModal<T> extends StatelessWidget {
             items,
             const SizedBox(height: 80),
             CustomButtonFactory.createButton(
-                    type: ButtonType.filled,
-                    color: CustomColors.secondary,
-                    width: 153,
-                    height: 40,
-                    verticalPadding: 8,
-                    borderRadius: 16,
-                    text: "Continue",
-                    fontColor: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    onPressed: () {
-                      onGenderSelected(selectedGender!); // Pass the selected gender
-                      Navigator.pop(context); // Close modal
-                    })
-                .build(),
+              type: ButtonType.filled,
+              color: CustomColors.secondary,
+              width: 153,
+              height: 40,
+              verticalPadding: 8,
+              borderRadius: 16,
+              text: "Continue",
+              fontColor: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              onPressed: () {
+                onGenderSelected(selectedGender!);
+                Navigator.pop(context, selectedGender);
+                print('CustomDropDownModal: $selectedGender');
+              },
+            ).build(),
           ],
         ),
       ),

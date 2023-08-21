@@ -46,6 +46,7 @@ class _UserPreferencesState extends State<UserPreferences> {
                   ),
                   const SizedBox(height: 16),
                   CustomDropDownField<Gender>(
+                    key: UniqueKey(),
                     icon: MaterialSymbols.transgender,
                     hintText: 'Gender',
                     modalTitle: "Select Your Gender",
