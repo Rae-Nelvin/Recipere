@@ -6,7 +6,7 @@ class CustomDropDownField<T> extends StatefulWidget {
   final IconData icon;
   final String hintText;
   final String modalTitle;
-  final List<Widget> items;
+  final Widget items;
   final T? value;
 
   const CustomDropDownField({

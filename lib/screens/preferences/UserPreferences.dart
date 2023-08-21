@@ -2,57 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/atoms/CustomDropDownField.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
-import 'package:recipere/components/molecules/GenderModalIcon.dart';
+import 'package:recipere/components/atoms/GenderModals.dart';
 import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
-class UserPreferences extends StatefulWidget {
-  const UserPreferences({Key? key}) : super(key: key);
-
-  @override
-  _UserPreferencesState createState() => _UserPreferencesState();
-}
-
-class _UserPreferencesState extends State<UserPreferences> {
-  Gender selectedGender = Gender.male;
-
-  List<GenderModalIcon> buildGenderIcons() {
-    return [
-      GenderModalIcon(
-      value: Gender.male,
-      title: 'Male',
-      onChanged: (value) {
-        setState(() {
-          selectedGender = value!;
-        });
-      },
-      groupValue: selectedGender,
-      isSelected: selectedGender == Gender.male,
-    ),
-      GenderModalIcon(
-        value: Gender.female,
-        title: 'Female',
-        onChanged: (value) {
-          setState(() {
-                selectedGender = value!;
-              });
-        },
-        groupValue: selectedGender,
-        isSelected: selectedGender == Gender.male,
-      ),
-      GenderModalIcon(
-        value: Gender.others,
-        title: 'Others',
-        onChanged: (value) {
-          setState(() {
-                selectedGender = value!;
-              });
-        },
-        groupValue: selectedGender,
-        isSelected: selectedGender == Gender.male,
-      ),
-    ];
-  }
+class UserPreferences extends StatelessWidget {
+  const UserPreferences({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +24,9 @@ class _UserPreferencesState extends State<UserPreferences> {
                 fit: BoxFit.cover,
               ),
               const SizedBox(height: 32),
-              Column(
+              const Column(
                 children: [
-                  const CustomTextFormField(
+                  CustomTextFormField(
                     icon: MaterialSymbols.person_pin,
                     hintText: "Nickname",
                     isPassword: false,
@@ -81,17 +36,17 @@ class _UserPreferencesState extends State<UserPreferences> {
                     icon: MaterialSymbols.transgender,
                     hintText: 'Gender',
                     modalTitle: "Select Your Gender",
-                    items: buildGenderIcons(),
+                    items: GenderModals(),
                   ),
-                  const SizedBox(height: 16),
-                  const CustomTextFormField(
+                  SizedBox(height: 16),
+                  CustomTextFormField(
                     icon: MaterialSymbols.restaurant_filled,
                     hintText: "Favorite Dish",
                     isPassword: false,
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Column(
                 children: [
                   CustomButtonFactory.createButton(
