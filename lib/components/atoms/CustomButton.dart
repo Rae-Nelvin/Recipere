@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
 
-class CustomBorderedButton implements Button {
+class CustomButton extends StatelessWidget {
   final double width;
   final double height;
+  final Color backgroundColor;
   final Color borderColor;
   final double verticalPadding;
   final double borderRadius;
@@ -16,10 +16,11 @@ class CustomBorderedButton implements Button {
   final double fontSize;
   final VoidCallback onPressed;
 
-  const CustomBorderedButton(
+  const CustomButton(
       {Key? key,
       required this.width,
       required this.height,
+      required this.backgroundColor,
       required this.borderColor,
       required this.verticalPadding,
       required this.borderRadius,
@@ -28,30 +29,35 @@ class CustomBorderedButton implements Button {
       required this.fontWeight,
       required this.fontSize,
       required this.onPressed,
-      this.image, this.icon, this.iconSize});
+      this.image,
+      this.icon,
+      this.iconSize});
 
   @override
-  Widget build() {
+  Widget build(BuildContext context) {
     return SizedBox(
       width: width,
       height: height,
-      child: OutlinedButton(
+      child: ElevatedButton(
         onPressed: onPressed,
-        style: OutlinedButton.styleFrom(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
           side: BorderSide(color: borderColor),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),
           padding: EdgeInsets.symmetric(vertical: verticalPadding),
         ),
-        child: Wrap (
+        child: Wrap(
           alignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             if (icon != null)
-               Icon(icon,
-               size: iconSize,
-               color: fontColor,),
+              Icon(
+                icon,
+                size: iconSize,
+                color: fontColor,
+              ),
             if (image != null)
               Image.asset(
                 image!,

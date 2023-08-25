@@ -36,7 +36,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           borderRadius: BorderRadius.circular(8)),
       child: Row(
         children: [
-          Icon(widget.icon, size: 20, color: CustomColors.secondary,),
+          Icon(
+            widget.icon,
+            size: 20,
+            color: CustomColors.secondary,
+          ),
           const SizedBox(width: 8),
           Expanded(
               child: TextFormField(

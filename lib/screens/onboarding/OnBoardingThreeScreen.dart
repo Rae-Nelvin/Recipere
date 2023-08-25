@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipere/components/atoms/CustomButton.dart';
 import 'package:recipere/components/atoms/CustomPaginationCircle.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/components/molecules/OnBoardingGradientBackground.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/preferences/UserPreferences.dart';
@@ -51,11 +51,11 @@ class OnBoardingThreeScreen extends StatelessWidget {
                         CustomPaginationCircle(isActive: true),
                       ],
                     ),
-                    CustomButtonFactory.createButton(
-                        type: ButtonType.filled,
+                    CustomButton(
                         width: 173,
                         height: 40,
-                        color: Colors.white,
+                        backgroundColor: Colors.white,
+                        borderColor: Colors.transparent,
                         verticalPadding: 8,
                         borderRadius: 8,
                         text: "Start Now",
@@ -67,7 +67,7 @@ class OnBoardingThreeScreen extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) =>
                                       const UserPreferences()));
-                        }).build(),
+                        })
                   ],
                 )
               ],

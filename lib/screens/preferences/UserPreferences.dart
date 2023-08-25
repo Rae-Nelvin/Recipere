@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
-import 'package:recipere/components/atoms/CustomDropDownField.dart';
+import 'package:recipere/components/atoms/CustomButton.dart';
+import 'package:recipere/components/molecules/CustomDropDownField.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
-import 'package:recipere/components/atoms/GenderModals.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
+import 'package:recipere/components/molecules/GenderModals.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class UserPreferences extends StatefulWidget {
@@ -67,21 +67,18 @@ class _UserPreferencesState extends State<UserPreferences> {
               const SizedBox(height: 60),
               Column(
                 children: [
-                  CustomButtonFactory.createButton(
-                    type: ButtonType.filled,
-                    width: 366,
-                    height: 43,
-                    color: CustomColors.secondary,
-                    verticalPadding: 10,
-                    borderRadius: 8,
-                    text: "Simpan",
-                    fontColor: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    onPressed: () {
-                      // Implement your onPressed logic here
-                    },
-                  ).build(),
+                  CustomButton(
+                      width: 366,
+                      height: 43,
+                      backgroundColor: CustomColors.secondary,
+                      borderColor: Colors.transparent,
+                      verticalPadding: 10,
+                      borderRadius: 8,
+                      text: "Save",
+                      fontColor: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      onPressed: () {}),
                 ],
               )
             ],

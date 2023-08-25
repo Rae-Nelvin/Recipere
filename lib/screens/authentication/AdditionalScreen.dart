@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
+import 'package:recipere/components/atoms/CustomButton.dart';
+import 'package:recipere/components/atoms/CustomTextButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/authentication/LoginScreen.dart';
 import 'package:recipere/screens/authentication/RegisterScreen.dart';
@@ -22,11 +23,11 @@ class AdditionalScreen extends StatelessWidget {
           const SizedBox(height: 47.81),
           Column(
             children: [
-              CustomButtonFactory.createButton(
-                  type: ButtonType.filled,
+              CustomButton(
                   width: 366,
                   height: 43,
-                  color: CustomColors.secondary,
+                  backgroundColor: CustomColors.secondary,
+                  borderColor: Colors.transparent,
                   verticalPadding: 10,
                   borderRadius: 8,
                   text: "Sign Up",
@@ -36,39 +37,36 @@ class AdditionalScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const RegisterScreen()));
-                  }).build(),
+                  }),
               const SizedBox(height: 16),
-              CustomButtonFactory.createButton(
-                      type: ButtonType.outlined,
-                      width: 366,
-                      height: 43,
-                      color: CustomColors.secondary,
-                      verticalPadding: 10,
-                      borderRadius: 8,
-                      image: "lib/assets/icons/google-logo.png",
-                      text: "Continue with Google",
-                      fontColor: CustomColors.primary,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      onPressed: () {})
-                  .build(),
+              CustomButton(
+                  width: 366,
+                  height: 43,
+                  backgroundColor: Colors.white,
+                  borderColor: CustomColors.secondary,
+                  verticalPadding: 10,
+                  borderRadius: 8,
+                  image: "lib/assets/icons/google-logo.png",
+                  text: "Continue with Google",
+                  fontColor: CustomColors.primary,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  onPressed: () {}),
               const SizedBox(height: 16),
-              CustomButtonFactory.createButton(
-                      type: ButtonType.outlined,
-                      width: 366,
-                      height: 43,
-                      color: CustomColors.secondary,
-                      verticalPadding: 10,
-                      borderRadius: 8,
-                      image: "lib/assets/icons/facebook-logo.png",
-                      text: "Continue with Facebook",
-                      fontColor: CustomColors.primary,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      onPressed: () {})
-                  .build(),
-              CustomButtonFactory.createButton(
-                  type: ButtonType.text,
+              CustomButton(
+                  width: 366,
+                  height: 43,
+                  backgroundColor: Colors.white,
+                  borderColor: CustomColors.secondary,
+                  verticalPadding: 10,
+                  borderRadius: 8,
+                  image: "lib/assets/icons/facebook-logo.png",
+                  text: "Continue with Facebook",
+                  fontColor: CustomColors.primary,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  onPressed: () {}),
+              CustomTextButton(
                   text: "Log In",
                   fontColor: CustomColors.primary,
                   fontWeight: FontWeight.w600,
@@ -76,7 +74,7 @@ class AdditionalScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const LoginScreen()));
-                  }).build()
+                  }),
             ],
           ),
         ],

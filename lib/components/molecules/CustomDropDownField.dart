@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/atoms/GenderModals.dart';
+import 'package:recipere/components/molecules/GenderModals.dart';
 import 'package:recipere/components/molecules/CustomDropDownModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
@@ -34,13 +34,15 @@ class CustomDropDownField<T extends Gender> extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(icon, size: 16, color: CustomColors.secondary,),
+            Icon(
+              icon,
+              size: 16,
+              color: CustomColors.secondary,
+            ),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                value != null
-                    ? genderDisplayNames[value]!
-                    : hintText,
+                value != null ? genderDisplayNames[value]! : hintText,
                 style: const TextStyle(
                   color: CustomColors.secondary,
                   fontSize: 16,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
+import 'package:recipere/components/atoms/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
 class CustomDropDownModal<T> extends StatelessWidget {
@@ -33,21 +33,20 @@ class CustomDropDownModal<T> extends StatelessWidget {
             const SizedBox(height: 64),
             items,
             const SizedBox(height: 80),
-            CustomButtonFactory.createButton(
-              type: ButtonType.filled,
-              color: CustomColors.secondary,
-              width: 153,
-              height: 40,
-              verticalPadding: 8,
-              borderRadius: 16,
-              text: "Continue",
-              fontColor: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ).build(),
+            CustomButton(
+                width: 153,
+                height: 40,
+                backgroundColor: CustomColors.secondary,
+                borderColor: Colors.transparent,
+                verticalPadding: 8,
+                borderRadius: 16,
+                text: "Continue",
+                fontColor: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                onPressed: () {
+                  Navigator.pop(context);
+                }),
           ],
         ),
       ),

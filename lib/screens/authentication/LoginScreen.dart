@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:recipere/components/atoms/CustomButton.dart';
+import 'package:recipere/components/atoms/CustomTextButton.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/authentication/RegisterScreen.dart';
 import 'package:recipere/screens/onboarding/OnBoardingOneScreen.dart';
@@ -51,11 +52,11 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 60),
               Column(
                 children: [
-                  CustomButtonFactory.createButton(
-                      type: ButtonType.filled,
+                  CustomButton(
                       width: 366,
                       height: 43,
-                      color: CustomColors.secondary,
+                      backgroundColor: CustomColors.secondary,
+                      borderColor: Colors.transparent,
                       verticalPadding: 10,
                       borderRadius: 8,
                       text: "Log In",
@@ -65,9 +66,8 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => const OnBoardingOneScreen()));
-                      }).build(),
-                  CustomButtonFactory.createButton(
-                      type: ButtonType.text,
+                      }),
+                  CustomTextButton(
                       text: "Sign Up",
                       fontColor: CustomColors.primary,
                       fontWeight: FontWeight.w600,
@@ -75,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => const RegisterScreen()));
-                      }).build()
+                      }),
                 ],
               )
             ],

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
+import 'package:recipere/components/atoms/CustomButton.dart';
 import 'package:recipere/components/atoms/CustomDatePicker.dart';
+import 'package:recipere/components/atoms/CustomTextButton.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/authentication/LoginScreen.dart';
 import 'package:recipere/screens/onboarding/OnBoardingOneScreen.dart';
@@ -56,11 +57,11 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 60),
                 Column(
                   children: [
-                    CustomButtonFactory.createButton(
-                        type: ButtonType.filled,
+                    CustomButton(
                         width: 366,
                         height: 43,
-                        color: CustomColors.secondary,
+                        backgroundColor: CustomColors.secondary,
+                        borderColor: Colors.transparent,
                         verticalPadding: 10,
                         borderRadius: 8,
                         text: "Sign Up",
@@ -72,9 +73,8 @@ class RegisterScreen extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) =>
                                       const OnBoardingOneScreen()));
-                        }).build(),
-                    CustomButtonFactory.createButton(
-                        type: ButtonType.text,
+                        }),
+                    CustomTextButton(
                         text: "Log In",
                         fontColor: CustomColors.primary,
                         fontWeight: FontWeight.w600,
@@ -83,7 +83,7 @@ class RegisterScreen extends StatelessWidget {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => const LoginScreen()));
-                        }).build()
+                        })
                   ],
                 )
               ],

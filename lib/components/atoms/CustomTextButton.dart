@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/molecules/CustomButton.dart';
 
-class CustomTextButton implements Button {
+class CustomTextButton extends StatelessWidget {
   final String text;
   final Color fontColor;
   final FontWeight fontWeight;
@@ -17,7 +16,7 @@ class CustomTextButton implements Button {
       required this.onPressed});
 
   @override
-  Widget build() {
+  Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       child: Text(
