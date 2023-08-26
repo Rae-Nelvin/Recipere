@@ -4,6 +4,7 @@ import 'package:recipere/components/atoms/CustomTextButton.dart';
 import 'package:recipere/components/molecules/OnBoardingGradientBackground.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/screens/onboarding/OnBoardingTwoScreen.dart';
+import 'package:recipere/screens/preferences/UserPreferences.dart';
 
 class OnBoardingOneScreen extends StatelessWidget {
   const OnBoardingOneScreen({super.key});
@@ -63,7 +64,12 @@ class OnBoardingOneScreen extends StatelessWidget {
                           fontColor: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
-                          onPressed: () {})
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const UserPreferences()));
+                          })
                     ],
                   )
                 ],
