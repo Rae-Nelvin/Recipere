@@ -73,6 +73,26 @@ flutter:
     - lib/assets/backgrounds/onboarding-one.png
     - lib/assets/backgrounds/onboarding-two.png
     - lib/assets/backgrounds/onboarding-three.png
+    - lib/assets/backgrounds/dishes/beverages.png
+    - lib/assets/backgrounds/dishes/chicken-and-duck.png
+    - lib/assets/backgrounds/dishes/fast-food.png
+    - lib/assets/backgrounds/dishes/halal.png
+    - lib/assets/backgrounds/dishes/snacks.png
+    - lib/assets/backgrounds/dishes/sweets.png
+    - lib/assets/backgrounds/dishes/bakery.png
+    - lib/assets/backgrounds/dishes/japanese.png
+    - lib/assets/backgrounds/dishes/indonesian.png
+    - lib/assets/backgrounds/dishes/coffee.png
+    - lib/assets/backgrounds/dishes/korean.png
+    - lib/assets/backgrounds/dishes/noodle.png
+    - lib/assets/backgrounds/dishes/italian.png
+    - lib/assets/backgrounds/dishes/chinese-food.png
+    - lib/assets/backgrounds/dishes/western.png
+    - lib/assets/backgrounds/dishes/seafood.png
+    - lib/assets/backgrounds/dishes/middle-eastern.png
+    - lib/assets/backgrounds/dishes/thai.png
+    - lib/assets/backgrounds/dishes/indian.png
+    - lib/assets/backgrounds/dishes/vegetarian.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

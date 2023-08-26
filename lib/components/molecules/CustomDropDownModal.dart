@@ -13,13 +13,9 @@ class CustomDropDownModal<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final modalHeight = screenHeight * 1;
-
-    return Container(
-      height: modalHeight,
+    return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 52, horizontal: 19),
+        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 0),
         child: Column(
           children: [
             Text(
@@ -30,9 +26,9 @@ class CustomDropDownModal<T> extends StatelessWidget {
                 color: CustomColors.primary,
               ),
             ),
-            const SizedBox(height: 64),
+            const SizedBox(height: 34),
             items,
-            const SizedBox(height: 80),
+            const SizedBox(height: 50),
             CustomButton(
                 width: 153,
                 height: 40,

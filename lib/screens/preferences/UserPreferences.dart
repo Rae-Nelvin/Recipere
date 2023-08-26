@@ -3,8 +3,10 @@ import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/atoms/CustomButton.dart';
 import 'package:recipere/components/molecules/CustomDropDownField.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
-import 'package:recipere/components/molecules/GenderModals.dart';
+import 'package:recipere/components/molecules/FavoriteDishesModal.dart';
+import 'package:recipere/components/molecules/GenderModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
+import 'package:recipere/data/DishType.dart';
 
 class UserPreferences extends StatefulWidget {
   const UserPreferences();
@@ -14,11 +16,22 @@ class UserPreferences extends StatefulWidget {
 }
 
 class _UserPreferencesState extends State<UserPreferences> {
-  Gender _selectedGender = Gender.male;
+  Genders _selectedGender = Genders.male;
+  List<DishType> _selectedDishes = [];
 
-  void _handleGenderSelected(Gender selectedGender) {
+  void _handleGenderSelected(Genders selectedGender) {
     setState(() {
       _selectedGender = selectedGender;
+    });
+  }
+
+  void _handleDishSelected(DishType selectedDish) {
+    setState(() {
+      if (_selectedDishes.contains(selectedDish)) {
+        _selectedDishes.remove(selectedDish);
+      } else {
+        _selectedDishes.add(selectedDish);
+      }
     });
   }
 
@@ -45,42 +58,45 @@ class _UserPreferencesState extends State<UserPreferences> {
                     isPassword: false,
                   ),
                   const SizedBox(height: 16),
-                  CustomDropDownField<Gender>(
+                  CustomDropDownField<Genders>(
                     key: UniqueKey(),
                     icon: MaterialSymbols.transgender,
                     hintText: 'Gender',
                     modalTitle: "Select Your Gender",
-                    items: GenderModals(
+                    items: GenderModal(
                       onGenderSelected: _handleGenderSelected,
                       selectedGender: _selectedGender, // Pass selected gender
                     ),
                     value: _selectedGender,
                   ),
                   const SizedBox(height: 16),
-                  const CustomTextFormField(
+                  CustomDropDownField(
                     icon: MaterialSymbols.restaurant_filled,
                     hintText: "Favorite Dish",
-                    isPassword: false,
+                    modalTitle: "Categories",
+                    items: FavoriteDishesModal(
+                      onDishSelected: _handleDishSelected,
+                      selectedDishes: _selectedDishes,
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 60),
-              Column(
-                children: [
-                  CustomButton(
-                      width: 366,
-                      height: 43,
-                      backgroundColor: CustomColors.secondary,
-                      borderColor: Colors.transparent,
-                      verticalPadding: 10,
-                      borderRadius: 8,
-                      text: "Save",
-                      fontColor: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      onPressed: () {}),
-                ],
-              )
+              CustomButton(
+                  width: 121,
+                  height: 35,
+                  backgroundColor: CustomColors.secondary,
+                  borderColor: Colors.transparent,
+                  verticalPadding: 5,
+                  borderRadius: 8,
+                  text: "Save",
+                  fontColor: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  onPressed: () {
+                    print(_selectedGender);
+                    print(_selectedDishes);
+                  }),
             ],
           ),
         ),

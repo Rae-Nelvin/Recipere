@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/components/molecules/GenderModals.dart';
+import 'package:recipere/components/molecules/GenderModal.dart';
 import 'package:recipere/components/molecules/CustomDropDownModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
-class CustomDropDownField<T extends Gender> extends StatelessWidget {
+class CustomDropDownField<T> extends StatelessWidget {
   final IconData icon;
   final String hintText;
   final String modalTitle;
