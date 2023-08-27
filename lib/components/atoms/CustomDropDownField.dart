@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/molecules/GenderModal.dart';
 import 'package:recipere/components/molecules/CustomDropDownModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
@@ -41,13 +42,23 @@ class CustomDropDownField<T> extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: Text(
-                value != null ? genderDisplayNames[value]! : hintText,
-                style: const TextStyle(
-                  color: CustomColors.secondary,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    value != null ? genderDisplayNames[value]! : hintText,
+                    style: const TextStyle(
+                      color: CustomColors.secondary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const Icon(
+                    MaterialSymbols.arrow_drop_down_filled,
+                    size: 16,
+                    color: CustomColors.secondary,
+                  ),
+                ],
               ),
             ),
           ],

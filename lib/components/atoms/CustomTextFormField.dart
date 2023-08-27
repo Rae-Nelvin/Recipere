@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:recipere/configs/CustomColors.dart';
 
 class CustomTextFormField extends StatefulWidget {
+  final double cornerRadius;
   final IconData icon;
   final String hintText;
+  final FontWeight fontWeight;
   final bool isPassword;
+  final Color boxColor;
+  final Color fontColor;
+  final IconData? rightIcon;
+  final VoidCallback? onTap;
 
   const CustomTextFormField(
       {Key? key,
+      required this.cornerRadius,
       required this.icon,
       required this.hintText,
-      required this.isPassword})
+      required this.fontWeight,
+      required this.isPassword,
+      required this.boxColor,
+      required this.fontColor,
+      this.rightIcon,
+      this.onTap})
       : super(key: key);
 
   @override
@@ -32,14 +43,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       width: 366,
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       decoration: BoxDecoration(
-          color: CustomColors.quartenary,
-          borderRadius: BorderRadius.circular(8)),
+          color: widget.boxColor,
+          borderRadius: BorderRadius.circular(widget.cornerRadius)),
       child: Row(
         children: [
           Icon(
             widget.icon,
             size: 20,
-            color: CustomColors.secondary,
+            color: widget.fontColor,
           ),
           const SizedBox(width: 8),
           Expanded(
@@ -47,12 +58,21 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             obscureText: !_isPasswordVisible,
             decoration: InputDecoration.collapsed(
                 hintText: widget.hintText,
-                hintStyle: const TextStyle(
-                  color: CustomColors.secondary,
+                hintStyle: TextStyle(
+                  color: widget.fontColor,
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: widget.fontWeight,
                 )),
           )),
+          if (widget.rightIcon != null && !widget.isPassword)
+            GestureDetector(
+              onTap: widget.onTap,
+              child: Icon(
+                widget.rightIcon,
+                size: 24,
+                color: widget.fontColor,
+              ),
+            ),
           if (widget.isPassword)
             GestureDetector(
               onTap: () {

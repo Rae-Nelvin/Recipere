@@ -28,14 +28,24 @@ class LoginScreen extends StatelessWidget {
               const Column(
                 children: [
                   CustomTextFormField(
-                      icon: MaterialSymbols.mail_filled,
-                      hintText: "Email",
-                      isPassword: false),
+                    cornerRadius: 8,
+                    icon: MaterialSymbols.mail_filled,
+                    hintText: "Email",
+                    fontWeight: FontWeight.w500,
+                    isPassword: false,
+                    boxColor: CustomColors.quartenary,
+                    fontColor: CustomColors.secondary,
+                  ),
                   SizedBox(height: 16),
                   CustomTextFormField(
-                      icon: MaterialSymbols.lock_filled,
-                      hintText: "Password",
-                      isPassword: true),
+                    cornerRadius: 8,
+                    icon: MaterialSymbols.lock_filled,
+                    hintText: "Password",
+                    fontWeight: FontWeight.w500,
+                    isPassword: true,
+                    boxColor: CustomColors.quartenary,
+                    fontColor: CustomColors.secondary,
+                  ),
                   SizedBox(height: 8),
                   Align(
                     alignment: Alignment.bottomRight,

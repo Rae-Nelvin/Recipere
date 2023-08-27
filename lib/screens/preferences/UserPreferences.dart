@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/atoms/CustomButton.dart';
-import 'package:recipere/components/molecules/CustomDropDownField.dart';
+import 'package:recipere/components/atoms/CustomDropDownField.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
 import 'package:recipere/components/molecules/FavoriteDishesModal.dart';
 import 'package:recipere/components/molecules/GenderModal.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/data/DishType.dart';
+import 'package:recipere/screens/home/HomeScreen.dart';
 
 class UserPreferences extends StatefulWidget {
   const UserPreferences();
@@ -53,9 +54,13 @@ class _UserPreferencesState extends State<UserPreferences> {
               Column(
                 children: [
                   const CustomTextFormField(
+                    cornerRadius: 8,
                     icon: MaterialSymbols.person_pin,
                     hintText: "Nickname",
+                    fontWeight: FontWeight.w500,
                     isPassword: false,
+                    boxColor: CustomColors.quartenary,
+                    fontColor: CustomColors.secondary,
                   ),
                   const SizedBox(height: 16),
                   CustomDropDownField<Genders>(
@@ -96,6 +101,8 @@ class _UserPreferencesState extends State<UserPreferences> {
                   onPressed: () {
                     print(_selectedGender);
                     print(_selectedDishes);
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const HomeScreen()));
                   }),
             ],
           ),

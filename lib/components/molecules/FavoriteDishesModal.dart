@@ -42,12 +42,23 @@ class _FavoriteDishesModalState extends State<FavoriteDishesModal> {
         backgroundImage: dish.backgroundImage,
         width: 129,
         height: 163,
+        contentAlignment: Alignment.center,
         borderRadius: 16,
         overlayColor: dish.overlayColor,
-        text: dish.name,
-        fontColor: dish.overlayColor == CustomColors.primary
-            ? Colors.white
-            : CustomColors.primary,
+        textAlignment: MainAxisAlignment.center,
+        textLists: [
+          Text(
+            dish.name,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: dish.overlayColor == CustomColors.primary
+                  ? Colors.white
+                  : CustomColors.primary,
+              fontSize: 16,
+            ),
+          ),
+        ],
+        textPadding: const EdgeInsets.all(0),
         onTap: () {
           setState(() {
             dish.isSelected = !dish.isSelected;

@@ -93,6 +93,11 @@ flutter:
     - lib/assets/backgrounds/dishes/thai.png
     - lib/assets/backgrounds/dishes/indian.png
     - lib/assets/backgrounds/dishes/vegetarian.png
+    - lib/assets/backgrounds/dishes/turkish-kebab.png
+    - lib/assets/backgrounds/dishes/shark-fin-soup.png
+    - lib/assets/backgrounds/dishes/bruschetta.png
+    - lib/assets/backgrounds/dishes/grilled-carp.png
+    - lib/assets/backgrounds/dishes/strawberry-sorbet.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

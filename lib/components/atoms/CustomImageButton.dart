@@ -4,28 +4,33 @@ class CustomImageButton extends StatelessWidget {
   final String backgroundImage;
   final double width;
   final double height;
+  final Alignment contentAlignment;
   final double borderRadius;
-  final Color overlayColor;
-  final String text;
-  final Color fontColor;
+  final Color? overlayColor;
+  final List<Text> textLists;
+  final MainAxisAlignment textAlignment;
+  final EdgeInsets textPadding;
   final VoidCallback onTap;
 
-  CustomImageButton(
-      {required this.backgroundImage,
-      required this.width,
-      required this.height,
-      required this.borderRadius,
-      required this.overlayColor,
-      required this.text,
-      required this.fontColor,
-      required this.onTap});
+  CustomImageButton({
+    required this.backgroundImage,
+    required this.width,
+    required this.height,
+    required this.contentAlignment,
+    required this.borderRadius,
+    this.overlayColor,
+    required this.textLists,
+    required this.textAlignment,
+    required this.textPadding,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Stack(
-        alignment: Alignment.center,
+        alignment: contentAlignment,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(borderRadius),
@@ -36,27 +41,28 @@ class CustomImageButton extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            width: width,
-            height: height,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(borderRadius),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  overlayColor.withOpacity(0.7),
-                  overlayColor.withOpacity(0.3),
-                ],
+          if (overlayColor != null)
+            Container(
+              width: width,
+              height: height,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(borderRadius),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    overlayColor!.withOpacity(0.7),
+                    overlayColor!.withOpacity(0.3),
+                  ],
+                ),
               ),
             ),
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              color: fontColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
+          Padding(
+            padding: textPadding,
+            child: Column(
+              mainAxisAlignment: textAlignment,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: textLists,
             ),
           ),
         ],
