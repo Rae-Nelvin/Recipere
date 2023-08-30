@@ -77,7 +77,7 @@ class CustomFoodCardHeader extends StatelessWidget {
           child: Icon(
             MaterialSymbols.bookmark,
             color: Colors.white,
-            size: 16,
+            size: 20,
           ),
         ),
       ],

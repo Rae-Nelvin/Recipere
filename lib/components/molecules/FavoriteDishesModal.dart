@@ -45,19 +45,21 @@ class _FavoriteDishesModalState extends State<FavoriteDishesModal> {
         contentAlignment: Alignment.center,
         borderRadius: 16,
         overlayColor: dish.overlayColor,
-        textAlignment: MainAxisAlignment.center,
-        textLists: [
-          Text(
-            dish.name,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: dish.overlayColor == CustomColors.primary
-                  ? Colors.white
-                  : CustomColors.primary,
-              fontSize: 16,
+        texts: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              dish.name,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: dish.overlayColor == CustomColors.primary
+                    ? Colors.white
+                    : CustomColors.primary,
+                fontSize: 16,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
         textPadding: const EdgeInsets.all(0),
         onTap: () {
           setState(() {

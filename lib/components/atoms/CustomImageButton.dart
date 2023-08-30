@@ -7,8 +7,7 @@ class CustomImageButton extends StatelessWidget {
   final Alignment contentAlignment;
   final double borderRadius;
   final Color? overlayColor;
-  final List<Text> textLists;
-  final MainAxisAlignment textAlignment;
+  final Widget texts;
   final EdgeInsets textPadding;
   final VoidCallback onTap;
 
@@ -19,8 +18,7 @@ class CustomImageButton extends StatelessWidget {
     required this.contentAlignment,
     required this.borderRadius,
     this.overlayColor,
-    required this.textLists,
-    required this.textAlignment,
+    required this.texts,
     required this.textPadding,
     required this.onTap,
   });
@@ -57,14 +55,7 @@ class CustomImageButton extends StatelessWidget {
                 ),
               ),
             ),
-          Padding(
-            padding: textPadding,
-            child: Column(
-              mainAxisAlignment: textAlignment,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: textLists,
-            ),
-          ),
+          Padding(padding: textPadding, child: texts),
         ],
       ),
     );

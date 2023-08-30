@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/configs/CustomColors.dart';
-import 'package:recipere/screens/Gocipe/GoCipeScreen.dart';
-import 'package:recipere/screens/HackCook/HackCookScreen.dart';
+import 'package:recipere/screens/goCipe/GoCipeScreen.dart';
+import 'package:recipere/screens/hackCook/HackCookScreen.dart';
 import 'package:recipere/screens/home/HomeScreenContent.dart';
 import 'package:recipere/screens/profile/ProfileScreen.dart';
 
@@ -32,56 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(120),
-        child: AppBar(
-          elevation: 0,
-          backgroundColor: CustomColors.white,
-          flexibleSpace: const SafeArea(
-            child: Padding(
-              padding: EdgeInsets.only(top: 17, left: 24, bottom: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hi Joy!",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: CustomColors.primary,
-                      fontSize: 36,
-                    ),
-                  ),
-                  Text(
-                    "Good Night🌙",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      color: CustomColors.secondary,
-                      fontSize: 24,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20, right: 33),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    MaterialSymbols.notifications_outlined,
-                    color: CustomColors.primary,
-                    size: 30,
-                  )),
-            )
-          ],
+      backgroundColor: CustomColors.white,
+      body: SafeArea(
+        child: IndexedStack(
+          index: _selectedIndex,
+          children: _pages,
         ),
       ),
-      backgroundColor: CustomColors.white,
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
+      extendBody: true,
       bottomNavigationBar: Container(
         height: 80,
         decoration: const BoxDecoration(
@@ -98,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                   icon: Icon(
-                    MaterialSymbols.home_outlined,
+                    MaterialSymbols.home_filled_outlined,
                   ),
                   label: "Home"),
               BottomNavigationBarItem(
