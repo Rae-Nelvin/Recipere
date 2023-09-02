@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/atoms/CustomFoodCardDescriptions.dart';
 import 'package:recipere/components/atoms/CustomFoodCardHeader.dart';
-import 'package:recipere/components/atoms/CustomHeaderSeeAll.dart';
+import 'package:recipere/components/molecules/CustomCreatorCard.dart';
+import 'package:recipere/components/molecules/CustomHeaderSeeAll.dart';
 import 'package:recipere/components/molecules/CustomFoodCard.dart';
 import 'package:recipere/components/atoms/CustomImageButton.dart';
-import 'package:recipere/components/atoms/CustomTextButton.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
 import 'package:recipere/configs/CustomColors.dart';
 
@@ -293,6 +293,154 @@ class HomeScreenContent extends StatelessWidget {
                 onTap: () {}),
             const SizedBox(height: 32),
             CustomHeaderSeeAll(title: "Suggested Creator", onPressed: () {}),
+            const SizedBox(height: 7),
+            SizedBox(
+              height: 201,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CustomCreatorCard(
+                      image: "lib/assets/creators/arnold-purnomo.png",
+                      username: "arnold.id",
+                      name: "Arnold Purnomo",
+                      onPressed: () {}),
+                  const SizedBox(width: 16),
+                  CustomCreatorCard(
+                      image: "lib/assets/creators/renatta-moeloek.png",
+                      username: "renatta",
+                      name: "Renatta Moeloek",
+                      onPressed: () {}),
+                  const SizedBox(width: 16),
+                  CustomCreatorCard(
+                      image: "lib/assets/creators/juna-rorim.png",
+                      username: "juna.id",
+                      name: "Juna Rorim",
+                      onPressed: () {}),
+                  const SizedBox(width: 16),
+                  CustomCreatorCard(
+                      image: "lib/assets/creators/reynold-poernomo.png",
+                      username: "renold.p",
+                      name: "Reynold Poernomo",
+                      onPressed: () {}),
+                  const SizedBox(width: 16),
+                  CustomCreatorCard(
+                      image: "lib/assets/creators/gordon-ramsay.png",
+                      username: "gordongram",
+                      name: "Gordon Ramsay",
+                      onPressed: () {}),
+                  const SizedBox(width: 16),
+                  CustomCreatorCard(
+                      image: "lib/assets/creators/james-oliver.png",
+                      username: "james.o",
+                      name: "James Oliver",
+                      onPressed: () {}),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
+            Container(
+              padding: const EdgeInsets.only(left: 44, right: 57),
+              child: const Column(
+                children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "310.777",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: CustomColors.primary,
+                                  fontSize: 36),
+                            ),
+                            Text(
+                              "active members",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: CustomColors.primary,
+                                  fontSize: 16),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "12.127",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: CustomColors.secondary,
+                                  fontSize: 36),
+                            ),
+                            Text(
+                              "recipes",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: CustomColors.secondary,
+                                  fontSize: 16),
+                            ),
+                          ],
+                        )
+                      ]),
+                  SizedBox(height: 18),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 71, right: 31),
+              child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(
+                          "1.713",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: CustomColors.secondary,
+                              fontSize: 36),
+                        ),
+                        Text(
+                          "articles",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: CustomColors.secondary,
+                              fontSize: 16),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          "539",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: CustomColors.primary,
+                              fontSize: 36),
+                        ),
+                        Text(
+                          "professional chefs",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: CustomColors.primary,
+                              fontSize: 16),
+                        ),
+                      ],
+                    )
+                  ]),
+            ),
+            const SizedBox(height: 35),
+            const Text(
+              "Share your story now",
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: CustomColors.primary,
+                  fontSize: 24),
+            ),
+            const SizedBox(height: 8),
+            const Row(
+              children: [],
+            )
           ],
         ),
       ),

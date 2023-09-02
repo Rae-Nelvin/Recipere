@@ -99,6 +99,12 @@ flutter:
     - lib/assets/backgrounds/dishes/grilled-carp.png
     - lib/assets/backgrounds/dishes/strawberry-sorbet.png
     - lib/assets/backgrounds/dishes/anywhere-anytime.png
+    - lib/assets/creators/arnold-purnomo.png
+    - lib/assets/creators/renatta-moeloek.png
+    - lib/assets/creators/juna-rorim.png
+    - lib/assets/creators/reynold-poernomo.png
+    - lib/assets/creators/gordon-ramsay.png
+    - lib/assets/creators/james-oliver.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
