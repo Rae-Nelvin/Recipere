@@ -46,8 +46,8 @@ class CustomImageButton extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(borderRadius),
                 gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
                   colors: [
                     overlayColor!.withOpacity(0.7),
                     overlayColor!.withOpacity(0.3),

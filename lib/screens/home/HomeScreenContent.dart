@@ -8,6 +8,10 @@ import 'package:recipere/components/molecules/CustomFoodCard.dart';
 import 'package:recipere/components/atoms/CustomImageButton.dart';
 import 'package:recipere/components/atoms/CustomTextFormField.dart';
 import 'package:recipere/configs/CustomColors.dart';
+import 'package:recipere/data/home/Carousel.dart';
+import 'package:recipere/data/home/Creators.dart';
+import 'package:recipere/data/home/Featured.dart';
+import 'package:social_media_buttons/social_media_button.dart';
 
 class HomeScreenContent extends StatelessWidget {
   const HomeScreenContent({super.key});
@@ -67,196 +71,82 @@ class HomeScreenContent extends StatelessWidget {
             const SizedBox(height: 28),
             SizedBox(
               height: 154,
-              child: ListView(
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  CustomImageButton(
-                      backgroundImage:
-                          'lib/assets/backgrounds/dishes/turkish-kebab.png',
-                      width: 366,
-                      height: 154,
-                      contentAlignment: Alignment.bottomLeft,
-                      borderRadius: 16,
-                      texts: const Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Turkish Kebab",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              fontSize: 24,
+                itemCount: carouselDatas.length,
+                itemBuilder: (context, index) {
+                  final data = carouselDatas[index];
+                  return Container(
+                    margin: const EdgeInsets.only(right: 16),
+                    child: CustomImageButton(
+                        backgroundImage: data['backgroundImage']!,
+                        width: 366,
+                        height: 154,
+                        contentAlignment: Alignment.bottomLeft,
+                        borderRadius: 16,
+                        texts: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              data['name']!,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white,
+                                fontSize: 24,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "Tap see more",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                          )
-                        ],
-                      ),
-                      textPadding: const EdgeInsets.only(left: 10, bottom: 10),
-                      onTap: () {}),
-                  const SizedBox(width: 16),
-                  CustomImageButton(
-                      backgroundImage:
-                          'lib/assets/backgrounds/dishes/turkish-kebab.png',
-                      width: 366,
-                      height: 154,
-                      contentAlignment: Alignment.bottomLeft,
-                      borderRadius: 16,
-                      texts: const Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Turkish Kebab",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              fontSize: 24,
-                            ),
-                          ),
-                          Text(
-                            "Tap see more",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                          )
-                        ],
-                      ),
-                      textPadding: const EdgeInsets.only(left: 10, bottom: 10),
-                      onTap: () {}),
-                  const SizedBox(width: 16),
-                  CustomImageButton(
-                      backgroundImage:
-                          'lib/assets/backgrounds/dishes/turkish-kebab.png',
-                      width: 366,
-                      height: 154,
-                      contentAlignment: Alignment.bottomLeft,
-                      borderRadius: 16,
-                      texts: const Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Turkish Kebab",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                              fontSize: 24,
-                            ),
-                          ),
-                          Text(
-                            "Tap see more",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                          )
-                        ],
-                      ),
-                      textPadding: const EdgeInsets.only(left: 10, bottom: 10),
-                      onTap: () {}),
-                ],
+                            const Text(
+                              "Tap see more",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                                fontSize: 12,
+                              ),
+                            )
+                          ],
+                        ),
+                        textPadding:
+                            const EdgeInsets.only(left: 10, bottom: 10),
+                        onTap: () {}),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 19),
             CustomHeaderSeeAll(title: "Featured", onPressed: () {}),
             SizedBox(
               height: 230,
-              child: ListView(
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  CustomFoodCard(
-                      width: 173,
-                      borderRadius: 16,
-                      header: const CustomFoodCardHeader(
+                itemCount: featuredDatas.length,
+                itemBuilder: (context, index) {
+                  final data = featuredDatas[index];
+
+                  return Container(
+                    margin: const EdgeInsets.only(right: 18),
+                    child: CustomFoodCard(
                         width: 173,
-                        height: 154,
-                        image:
-                            "lib/assets/backgrounds/dishes/shark-fin-soup.png",
-                        color: CustomColors.primary,
-                        leftIcon: MaterialSymbols.timer,
-                        leftText: "114 mins",
-                      ),
-                      descriptions: const CustomFoodCardDescriptionsWithStar(
-                        padding: EdgeInsets.only(top: 7, left: 8, bottom: 11),
-                        title: "Shark fin Soup",
-                        subtitle: "Maureen Claudia",
-                        stars: 5,
-                        values: 4.9,
-                      ),
-                      onTap: () {}),
-                  const SizedBox(width: 18),
-                  CustomFoodCard(
-                      width: 173,
-                      borderRadius: 16,
-                      header: const CustomFoodCardHeader(
-                        width: 173,
-                        height: 154,
-                        image: "lib/assets/backgrounds/dishes/bruschetta.png",
-                        color: CustomColors.primary,
-                        leftIcon: MaterialSymbols.timer,
-                        leftText: "14 mins",
-                      ),
-                      descriptions: const CustomFoodCardDescriptionsWithStar(
-                        padding: EdgeInsets.only(top: 7, left: 8, bottom: 11),
-                        title: "Bruschetta",
-                        subtitle: "Amanda K",
-                        stars: 5,
-                        values: 4.5,
-                      ),
-                      onTap: () {}),
-                  const SizedBox(width: 18),
-                  CustomFoodCard(
-                      width: 173,
-                      borderRadius: 16,
-                      header: const CustomFoodCardHeader(
-                        width: 173,
-                        height: 154,
-                        image: "lib/assets/backgrounds/dishes/grilled-carp.png",
-                        color: CustomColors.primary,
-                        leftIcon: MaterialSymbols.timer,
-                        leftText: "49 mins",
-                      ),
-                      descriptions: const CustomFoodCardDescriptionsWithStar(
-                        padding: EdgeInsets.only(top: 7, left: 8, bottom: 11),
-                        title: "Grilled Carp",
-                        subtitle: "Andika Budianto",
-                        stars: 5,
-                        values: 4.9,
-                      ),
-                      onTap: () {}),
-                  const SizedBox(width: 18),
-                  CustomFoodCard(
-                      width: 173,
-                      borderRadius: 16,
-                      header: const CustomFoodCardHeader(
-                        width: 173,
-                        height: 154,
-                        image:
-                            "lib/assets/backgrounds/dishes/strawberry-sorbet.png",
-                        color: CustomColors.primary,
-                        leftIcon: MaterialSymbols.timer,
-                        leftText: "55 mins",
-                      ),
-                      descriptions: const CustomFoodCardDescriptionsWithStar(
-                        padding: EdgeInsets.only(top: 7, left: 8, bottom: 11),
-                        title: "Strawberry Sorbet",
-                        subtitle: "Renatta Moeloek",
-                        stars: 5,
-                        values: 4.9,
-                      ),
-                      onTap: () {}),
-                ],
+                        borderRadius: 16,
+                        header: CustomFoodCardHeader(
+                          width: 173,
+                          height: 154,
+                          image: data['image']!,
+                          color: CustomColors.primary,
+                          leftIcon: MaterialSymbols.timer,
+                          leftText: data['leftText'],
+                        ),
+                        descriptions: CustomFoodCardDescriptionsWithStar(
+                          padding: const EdgeInsets.only(
+                              top: 7, left: 8, bottom: 11),
+                          title: data['title']!,
+                          subtitle: data['subtitle']!,
+                          stars: int.parse(data['stars']!),
+                          values: double.parse(data['values']!),
+                        ),
+                        onTap: () {}),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 31),
@@ -296,45 +186,21 @@ class HomeScreenContent extends StatelessWidget {
             const SizedBox(height: 7),
             SizedBox(
               height: 201,
-              child: ListView(
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  CustomCreatorCard(
-                      image: "lib/assets/creators/arnold-purnomo.png",
-                      username: "arnold.id",
-                      name: "Arnold Purnomo",
-                      onPressed: () {}),
-                  const SizedBox(width: 16),
-                  CustomCreatorCard(
-                      image: "lib/assets/creators/renatta-moeloek.png",
-                      username: "renatta",
-                      name: "Renatta Moeloek",
-                      onPressed: () {}),
-                  const SizedBox(width: 16),
-                  CustomCreatorCard(
-                      image: "lib/assets/creators/juna-rorim.png",
-                      username: "juna.id",
-                      name: "Juna Rorim",
-                      onPressed: () {}),
-                  const SizedBox(width: 16),
-                  CustomCreatorCard(
-                      image: "lib/assets/creators/reynold-poernomo.png",
-                      username: "renold.p",
-                      name: "Reynold Poernomo",
-                      onPressed: () {}),
-                  const SizedBox(width: 16),
-                  CustomCreatorCard(
-                      image: "lib/assets/creators/gordon-ramsay.png",
-                      username: "gordongram",
-                      name: "Gordon Ramsay",
-                      onPressed: () {}),
-                  const SizedBox(width: 16),
-                  CustomCreatorCard(
-                      image: "lib/assets/creators/james-oliver.png",
-                      username: "james.o",
-                      name: "James Oliver",
-                      onPressed: () {}),
-                ],
+                itemCount: creatorsData.length,
+                itemBuilder: (context, index) {
+                  final data = creatorsData[index];
+
+                  return Container(
+                    margin: const EdgeInsets.only(right: 16),
+                    child: CustomCreatorCard(
+                        image: data['image']!,
+                        username: data['username']!,
+                        name: data['name']!,
+                        onPressed: () {}),
+                  );
+                },
               ),
             ),
             const SizedBox(height: 32),
@@ -438,8 +304,69 @@ class HomeScreenContent extends StatelessWidget {
                   fontSize: 24),
             ),
             const SizedBox(height: 8),
-            const Row(
-              children: [],
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 46),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SocialMediaButton.facebook(
+                    color: CustomColors.secondary,
+                    size: 32,
+                  ),
+                  SocialMediaButton.instagram(
+                    color: CustomColors.secondary,
+                    size: 32,
+                  ),
+                  SocialMediaButton.github(
+                    color: CustomColors.secondary,
+                    size: 32,
+                  ),
+                  SocialMediaButton.twitter(
+                    color: CustomColors.secondary,
+                    size: 32,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
+            CustomImageButton(
+                backgroundImage: "lib/assets/backgrounds/main-screen-one.png",
+                width: 365,
+                height: 234,
+                contentAlignment: Alignment.bottomLeft,
+                borderRadius: 16,
+                overlayColor: CustomColors.pentatenary,
+                texts: const Column(
+                  children: [
+                    Text(
+                      "Are you ready to begin your journey with us?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
+                    ),
+                    Text(
+                      "Start your inspiration right here to collaborate with fellow peers and successful chefs to divine your foods ideas1",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+                textPadding:
+                    const EdgeInsets.symmetric(vertical: 9, horizontal: 9),
+                onTap: () {}),
+            const SizedBox(height: 32),
+            const Text(
+              "Copyright 2021 ©Recepiere",
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
+                fontSize: 12,
+              ),
             )
           ],
         ),

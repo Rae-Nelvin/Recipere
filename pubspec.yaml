@@ -38,6 +38,7 @@ dependencies:
   flutter_countdown_timer: ^4.1.0
   intl: ^0.18.1
   flutter_material_symbols: ^0.0.4
+  social_media_buttons: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -99,6 +100,7 @@ flutter:
     - lib/assets/backgrounds/dishes/grilled-carp.png
     - lib/assets/backgrounds/dishes/strawberry-sorbet.png
     - lib/assets/backgrounds/dishes/anywhere-anytime.png
+    - lib/assets/backgrounds/main-screen-one.png
     - lib/assets/creators/arnold-purnomo.png
     - lib/assets/creators/renatta-moeloek.png
     - lib/assets/creators/juna-rorim.png
