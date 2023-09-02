@@ -10,6 +10,7 @@ class CustomColors {
   static const Color white = Color.fromARGB(255, 244, 244, 244);
   static const Color golden = Color.fromARGB(255, 252, 196, 37);
   static const Color blue = Color.fromARGB(255, 56, 151, 240);
+  static const Color black = Color.fromARGB(255, 67, 67, 67);
 
   static Color parseOverlayColor(String colorString) {
     switch (colorString) {
