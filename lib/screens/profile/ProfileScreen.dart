@@ -10,6 +10,7 @@ import 'package:recipere/components/molecules/CustomHeaderSeeAll.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/data/home/Featured.dart';
 import 'package:recipere/screens/profile/EditProfileScreen.dart';
+import 'package:recipere/screens/profile/NotificationsSettingScreen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -99,7 +100,14 @@ class ProfileScreen extends StatelessWidget {
                         CustomSectionButton(
                             icon: MaterialSymbols.notifications_filled_outlined,
                             text: "Notifications",
-                            onTap: () {}),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute<void>(
+                                    builder: (context) =>
+                                        const NotificationsSettingsScreen()),
+                              );
+                            }),
                         const SizedBox(height: 16),
                         CustomSectionButton(
                             icon: MaterialSymbols.security_filled,
