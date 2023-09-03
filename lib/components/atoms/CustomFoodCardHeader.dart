@@ -6,7 +6,7 @@ class CustomFoodCardHeader extends StatelessWidget {
   final double height;
   final String image;
   final Color color;
-  final IconData leftIcon;
+  final IconData? leftIcon;
   final String? leftText;
 
   const CustomFoodCardHeader({
@@ -15,7 +15,7 @@ class CustomFoodCardHeader extends StatelessWidget {
     required this.height,
     required this.image,
     required this.color,
-    required this.leftIcon,
+    this.leftIcon,
     this.leftText,
   });
 
@@ -54,20 +54,22 @@ class CustomFoodCardHeader extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Icon(
-                leftIcon,
-                color: Colors.white,
-                size: 20,
-              ),
-              if (leftText != null) const SizedBox(width: 4),
-              Text(
-                leftText!,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w400,
+              if (leftIcon != null)
+                Icon(
+                  leftIcon,
                   color: Colors.white,
-                  fontSize: 12,
+                  size: 20,
                 ),
-              )
+              if (leftText != null) const SizedBox(width: 4),
+              if (leftText != null)
+                Text(
+                  leftText!,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                )
             ],
           ),
         ),

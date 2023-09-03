@@ -62,12 +62,15 @@ class _NotificationsSettingBodyState extends State<NotificationsSettingBody> {
               job: "Sous Chef at Hell's Kitchen",
               email: "jennifergover.carrd.co"),
           const SizedBox(height: 32),
-          const Text(
-            'Notifications Settings',
-            style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: CustomColors.black,
-                fontSize: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: Text(
+              'Notifications Settings',
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: CustomColors.black,
+                  fontSize: 16),
+            ),
           ),
           CustomProfileSwitchForm(
             title: 'Do Not Disturb',

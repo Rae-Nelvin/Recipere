@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_material_symbols/flutter_material_symbols.dart';
 import 'package:recipere/components/atoms/CustomButton.dart';
-import 'package:recipere/components/atoms/CustomFoodCardDescriptions.dart';
 import 'package:recipere/components/atoms/CustomFoodCardHeader.dart';
 import 'package:recipere/components/atoms/CustomProfileShortDesc.dart';
 import 'package:recipere/components/atoms/CustomSectionButton.dart';
@@ -75,14 +74,68 @@ class ProfileScreen extends StatelessWidget {
                                   leftIcon: MaterialSymbols.timer,
                                   leftText: data['leftText'],
                                 ),
-                                descriptions:
-                                    CustomFoodCardDescriptionsWithStar(
+                                descriptions: Container(
                                   padding: const EdgeInsets.only(
                                       top: 7, left: 8, bottom: 11),
-                                  title: data['title']!,
-                                  subtitle: data['subtitle']!,
-                                  stars: int.parse(data['stars']!),
-                                  values: double.parse(data['values']!),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        data['title']!,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          color: CustomColors.primary,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            data['subtitle']!,
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.w400,
+                                              color: CustomColors.primary,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 2),
+                                          const Icon(
+                                            MaterialSymbols.verified_filled,
+                                            color: CustomColors.blue,
+                                            size: 14,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: List.generate(
+                                              int.parse(data['stars']!),
+                                              (index) => const Icon(
+                                                MaterialSymbols.star_filled,
+                                                color: CustomColors.golden,
+                                                size: 12,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          Text(
+                                            data['values'].toString(),
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.w400,
+                                              color: CustomColors.primary,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 onTap: () {}),
                           );
