@@ -9,6 +9,7 @@ import 'package:recipere/components/molecules/CustomFoodCard.dart';
 import 'package:recipere/components/molecules/CustomHeaderSeeAll.dart';
 import 'package:recipere/configs/CustomColors.dart';
 import 'package:recipere/data/home/Featured.dart';
+import 'package:recipere/screens/profile/EditProfileScreen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -39,7 +40,13 @@ class ProfileScreen extends StatelessWidget {
                   fontColor: CustomColors.gray,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                          builder: (context) => const EditProfileScreen()),
+                    );
+                  }),
               const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),

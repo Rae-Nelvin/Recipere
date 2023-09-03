@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipere/screens/home/HomeScreen.dart';
 import './screens/authentication/AdditionalScreen.dart';
 import './screens/SplashScreen.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
@@ -28,7 +29,7 @@ class SplashScreenWithTimer extends StatelessWidget {
       endTime: DateTime.now().millisecondsSinceEpoch + countdownDuration * 1000,
       onEnd: () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => AdditionalScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
       },
       widgetBuilder: (context, timer) {
