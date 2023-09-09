@@ -121,7 +121,15 @@ flutter:
     - lib/assets/hackCook/recommendations/72Oz-steak.png
     - lib/assets/hackCook/recommendations/food-plating.png
     - lib/assets/hackCook/recommendations/lobster-frittata.png
-    
+    - lib/assets/go-cipe/dinner-menus/chicken-teriyaki.png
+    - lib/assets/go-cipe/dinner-menus/lemon-garlic-salmon.png
+    - lib/assets/go-cipe/dinner-menus/mac-n-cheese.png
+    - lib/assets/go-cipe/just-for-you/authentic-pho.png
+    - lib/assets/go-cipe/just-for-you/mashed-potatoes.png
+    - lib/assets/go-cipe/just-for-you/risotto-mushroom.png
+    - lib/assets/go-cipe/just-for-you/tuna-salmon.png
+    - lib/assets/go-cipe/on-progress/chicken-snitzel.png
+    - lib/assets/go-cipe/on-progress/indonesian-fried-rice.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

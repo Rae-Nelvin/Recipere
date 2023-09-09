@@ -139,7 +139,7 @@ class HackCookScreen extends StatelessWidget {
                                     data['subtitle']!,
                                     style: const TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        color: Colors.black,
+                                        color: CustomColors.black,
                                         fontSize: 12),
                                   ),
                                   const SizedBox(width: 2),
@@ -200,7 +200,7 @@ class HackCookScreen extends StatelessWidget {
                           width: 365,
                           height: 202,
                           image: data['image']!,
-                          color: Colors.black,
+                          color: CustomColors.black,
                           leftText: data['views']!,
                           leftIcon: Icons.remove_red_eye_outlined,
                         ),
