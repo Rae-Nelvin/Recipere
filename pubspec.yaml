@@ -112,6 +112,15 @@ flutter:
     - lib/assets/creators/gordon-ramsay.png
     - lib/assets/creators/james-oliver.png
     - lib/assets/creators/jennifer-gover.png
+    - lib/assets/hackCook/trendings/cultural-dishes.png
+    - lib/assets/hackCook/trendings/egg-challenge.png
+    - lib/assets/hackCook/trendings/egg-yolk.png
+    - lib/assets/hackCook/trendings/gastronomy.png
+    - lib/assets/hackCook/trendings/keto-diet.png
+    - lib/assets/hackCook/trendings/american-diet.png
+    - lib/assets/hackCook/recommendations/72Oz-steak.png
+    - lib/assets/hackCook/recommendations/food-plating.png
+    - lib/assets/hackCook/recommendations/lobster-frittata.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
