@@ -9,6 +9,7 @@ import 'package:recipere/data/DishType.dart';
 import 'package:recipere/data/goCipe/DinnerMenu.dart';
 import 'package:recipere/data/goCipe/JustForYou.dart';
 import 'package:recipere/data/goCipe/OnProgress.dart';
+import 'package:recipere/screens/goCipe/ReviewScreen.dart';
 
 class GoCipeScreen extends StatelessWidget {
   const GoCipeScreen({super.key});
@@ -83,85 +84,90 @@ class GoCipeScreen extends StatelessWidget {
             SizedBox(
               height: 220,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: justForYouDatas.length,
-                itemBuilder: (context, index) {
-                  final data = justForYouDatas[index];
-                  return Container(
-                    margin: const EdgeInsets.only(right: 19),
-                    child: CustomFoodCard(
-                        width: 173,
-                        borderRadius: 16,
-                        header: CustomFoodCardHeader(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: justForYouDatas.length,
+                  itemBuilder: (context, index) {
+                    final data = justForYouDatas[index];
+                    return Container(
+                      margin: const EdgeInsets.only(right: 19),
+                      child: CustomFoodCard(
                           width: 173,
-                          height: 154,
-                          image: data['image']!,
-                          color: CustomColors.black,
-                          leftIcon: MaterialSymbols.timer,
-                          leftText: data['leftText']!,
-                        ),
-                        descriptions: Padding(
-                          padding: const EdgeInsets.only(left: 8, top: 2),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                data['title']!,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    color: CustomColors.primary,
-                                    fontSize: 16),
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    data['subtitle']!,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w400,
+                          borderRadius: 16,
+                          header: CustomFoodCardHeader(
+                            width: 173,
+                            height: 154,
+                            image: data['image']!,
+                            color: CustomColors.black,
+                            leftIcon: MaterialSymbols.timer,
+                            leftText: data['leftText']!,
+                          ),
+                          descriptions: Padding(
+                            padding: const EdgeInsets.only(left: 8, top: 2),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  data['title']!,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w600,
                                       color: CustomColors.primary,
-                                      fontSize: 12,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 2),
-                                  const Icon(
-                                    MaterialSymbols.verified_filled,
-                                    color: CustomColors.blue,
-                                    size: 14,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: List.generate(
-                                      int.parse(data['stars']!),
-                                      (index) => const Icon(
-                                        MaterialSymbols.star_filled,
-                                        color: CustomColors.golden,
-                                        size: 12,
+                                      fontSize: 16),
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      data['subtitle']!,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: CustomColors.primary,
+                                        fontSize: 12,
                                       ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    data['values'].toString(),
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: CustomColors.primary,
-                                      fontSize: 10,
+                                    const SizedBox(width: 2),
+                                    const Icon(
+                                      MaterialSymbols.verified_filled,
+                                      color: CustomColors.blue,
+                                      size: 14,
                                     ),
-                                  ),
-                                ],
-                              )
-                            ],
+                                  ],
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: List.generate(
+                                        int.parse(data['stars']!),
+                                        (index) => const Icon(
+                                          MaterialSymbols.star_filled,
+                                          color: CustomColors.golden,
+                                          size: 12,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      data['values'].toString(),
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: CustomColors.primary,
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        onTap: () {}),
-                  );
-                },
-              ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute<void>(
+                                  builder: (context) => const ReviewScreen()),
+                            );
+                          }),
+                    );
+                  }),
             ),
             const SizedBox(height: 24),
             const Text(
